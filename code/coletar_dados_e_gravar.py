@@ -2,11 +2,8 @@ from datetime import date
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 import bs4 as bs
-import ftplib
-import gzip
 import os
 import pandas as pd
-import psycopg2
 import pymysql
 import re
 import sys
@@ -14,7 +11,6 @@ import time
 import urllib.request
 import wget
 import zipfile
-import math
 
 OUTPUT_FILES_PATH = "./OUTPUT_FILES/"
 EXTRACTED_FILES_PATH = "./EXTRACTED_FILES/"
@@ -255,7 +251,6 @@ conn_url = (
 engine = create_engine(conn_url)
 print("Engine ok!")
 
-# conn = psycopg2.connect('dbname='+database+' '+'user='+user+' '+'host='+host+' '+'password='+passw)
 conn = pymysql.connect(host=host, database=database, user=user, password=passw)
 cur = conn.cursor()
 print("Conexão ok!")
