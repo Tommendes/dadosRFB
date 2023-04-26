@@ -11,17 +11,18 @@ Nesse repositório consta um processo de ETL para **i)** baixar os arquivos; **i
 ---------------------
 
 ### Infraestrutura necessária:
-- [Python 3.8](https://www.python.org/downloads/release/python-3810/)
-- [PostgreSQL 14.2](https://www.postgresql.org/download/)
+- [Python3](https://www.python.org/downloads/release/python-3810/)
+- [MySql/MariaDB]
   
 ---------------------
 
 ### How to use:
-1. Com o Postgres instalado, inicie a instância do servidor (pode ser local) e crie o banco de dados conforme o arquivo `banco_de_dados.sql`.
+1. Crie o banco de dados conforme o arquivo `banco_de_dados.sql`.
 
-2. Crie um arquivo `.env` no diretório `code`, conforme as variáveis de ambiente do seu ambiente de trabalho (localhost). Utilize como referência o arquivo `.env_template`. Você pode também, por exemplo, renomear o arquivo de `.env_template` para apenas `.env` e então utilizá-lo:
+2. Defina as variáveis abaixo no corpo do arquivo code/coletar_dados_e_gravar.py conforme as variáveis de ambiente do seu ambiente de trabalho (localhost):
    - `OUTPUT_FILES_PATH`: diretório de destino para o donwload dos arquivos
    - `EXTRACTED_FILES_PATH`: diretório de destino para a extração dos arquivos .zip
+   - `SAVED_FILES`: diretório de destino para os arquivos já inseridos no BD
    - `DB_USER`: usuário do banco de dados criado pelo arquivo `banco_de_dados.sql`
    - `DB_PASSWORD`: senha do usuário do BD
    - `DB_HOST`: host da conexão com o BD 
@@ -33,7 +34,7 @@ Nesse repositório consta um processo de ETL para **i)** baixar os arquivos; **i
 pip install -r requirements.txt
 ```
 
-4. Execute o arquivo `ETL_coletar_dados_e_gravar_BD.py` e aguarde a finalização do processo.
+4. Execute o arquivo `coletar_dados_e_gravar.py` e aguarde a finalização do processo.
    - Os arquivos são grandes. Dependendo da infraestrutura isso deve levar muitas horas para conclusão.
    - Arquivos de 08/05/2021: `4,68 GB` compactados e `17,1 GB` descompactados.
     
@@ -57,3 +58,6 @@ pip install -r requirements.txt
 
 ### Modelo de Entidade Relacionamento:
 ![alt text](https://github.com/aphonsoar/Receita_Federal_do_Brasil_-_Dados_Publicos_CNPJ/blob/master/Dados_RFB_ERD.png)
+
+### Créditos especiais para:
+https://github.com/aphonsoar/Receita_Federal_do_Brasil_-_Dados_Publicos_CNPJ
