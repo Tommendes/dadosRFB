@@ -7,14 +7,14 @@ A Receita Federal do Brasil disponibiliza bases com os dados públicos do cadast
 De forma geral, nelas constam as mesmas informações que conseguimos ver no cartão do CNPJ, quando fazemos uma consulta individual, acrescidas de outros dados de Simples Nacional, sócios e etc. Análises muito ricas podem sair desses dados, desde econômicas, mercadológicas até investigações.
 
 # Baseado no belíssimo trabalho do gênio [Aphonso Henrique](https://github.com/aphonsoar), este repositório adiciona algumas melhorias como 
-- Quebra de todos os arquivos muito grandes - não só os arquivos do SIMPLES - em partes menores durante a leitura evitando as quebras de processamento por falta de  memória durante a operação
+- Quebra de todos os arquivos muito grandes - não só os arquivos do **SIMPLES** - em partes menores durante a leitura evitando as quebras de processamento por falta de  memória durante a operação
 - Adicionada uma pasta "SAVED_FILES" para armazenar dinamicamente os arquivos já importados para o BD
 - Descompactar novamente os arquivos se tornou opcional
 
 Nesse repositório consta um processo de ETL para 
 **i)** baixar os arquivos; 
 **ii)** descompactar; 
-**iii)** ler e tratar, 
+**iii)** ler e tratar; 
 **iv)** inserir num banco de dados relacional MariaDB e 
 **v)** Guardar o arquivo tratado em uma pasta.
 

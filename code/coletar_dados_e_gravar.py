@@ -16,9 +16,11 @@ import wget
 import zipfile
 import math
 
-rowsByStep = 4096
-totalFrameSize = 0
-rangeLimit = 5000000
+OUTPUT_FILES_PATH = "./OUTPUT_FILES/"
+EXTRACTED_FILES_PATH = "./EXTRACTED_FILES/"
+SAVED_FILES_PATH = "./SAVED_FILES/"
+# URL para download
+dados_rf = "http://200.152.38.155/CNPJ/"
 
 
 # %%
@@ -29,54 +31,24 @@ def makedirs(path):
     if not os.path.exists(path):
         os.makedirs(path)
 
-
 # %%
 def to_sql(dataframe, **kwargs):
-    """
+    '''
     Quebra em pedacos a tarefa de inserir registros no banco
-    """
-    # size = 4096
+    '''
+    size = 4096
     total = len(dataframe)
-    name = kwargs.get("name")
-    action = 1
+    name = kwargs.get('name')
 
     def chunker(df):
-        return (df[i : i + rowsByStep] for i in range(0, len(df), rowsByStep))
+        return (df[i:i + size] for i in range(0, len(df), size))
 
     for i, df in enumerate(chunker(dataframe)):
         df.to_sql(**kwargs)
-        progress(name, rowsByStep * action, totalFrameSize)
-        action += 1
-
-
-# %%
-# Cria e imprime uma barra de progresso da opereração
-def progress(name, done, size):
-    percent = (done * 100) / size
-    progress = f"{name} {percent:.2f}% {done:0{len(str(size))}}/{size}"
-    sys.stdout.write(f"\r{progress}")
-
-
-# %%
-# Ler arquivo de configuração de ambiente # https://dev.to/jakewitcher/using-env-files-for-environment-variables-in-python-applications-55a1
-
-
-def getEnv(env):
-    return os.getenv(env)
-
-
-# print('Especifique o local do seu arquivo de configuração ".env". Por exemplo: C:\...\Receita_Federal_do_Brasil_-_Dados_Publicos_CNPJ\code')
-# # C:\Aphonso_C\Git\Receita_Federal_do_Brasil_-_Dados_Publicos_CNPJ\code
-# local_env = input()
-# dotenv_path = os.path.join(local_env, '.env')
-# load_dotenv(dotenv_path=dotenv_path)
-
-
-OUTPUT_FILES_PATH = "./OUTPUT_FILES/"
-EXTRACTED_FILES_PATH = "./EXTRACTED_FILES/"
-SAVED_FILES_PATH = "./SAVED_FILES/"
-
-dados_rf = "http://200.152.38.155/CNPJ/"
+        index = i * size
+        percent = (index * 100) / total
+        progress = f'{name} {percent:.2f}% {index:0{len(str(total))}}/{total}'
+        sys.stdout.write(f'\r{progress}')
 
 # %%
 # Grant folders:
@@ -188,25 +160,32 @@ if len(Files) > 0:
 # %%
 # Download layout:
 if not os.path.isfile(OUTPUT_FILES_PATH + "NOVOLAYOUTDOSDADOSABERTOSDOCNPJ.pdf"):
-    Layout = "https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/consultas/arquivos/NOVOLAYOUTDOSDADOSABERTOSDOCNPJ.pdf"
-    print("Baixando layout:")
-    wget.download(Layout, out=output_files, bar=bar_progress)
+    print('Necessita do arquivo de leiaute?(S/N)')
+    yn = input()
+    if yn == "s":
+        Layout = "https://www.gov.br/receitafederal/pt-br/assuntos/orientacao-tributaria/cadastros/consultas/arquivos/NOVOLAYOUTDOSDADOSABERTOSDOCNPJ.pdf"
+        print("Baixando layout:")
+        wget.download(Layout, out=output_files, bar=bar_progress)
 
 ####################################################################################################################################################
 
 # %%
 # Extracting files:
-# i_l = 0
-# for l in FilesList:
-#     try:
-#         i_l += 1
-#         print('Descompactando arquivo:')
-#         print(str(i_l) + ' - ' + l)
-#         full_path = os.path.join(output_files, l)
-#         with zipfile.ZipFile(full_path, 'r') as zip_ref:
-#             zip_ref.extractall(extracted_files)
-#     except:
-#         pass
+
+print('Necessita descompactar os arquivos baixados?(S/N)')
+yn = input()
+if yn == "s":
+    i_l = 0
+    for l in FilesList:
+        try:
+            i_l += 1
+            print('Descompactando arquivo:')
+            print(str(i_l) + ' - ' + l)
+            full_path = os.path.join(output_files, l)
+            with zipfile.ZipFile(full_path, 'r') as zip_ref:
+                zip_ref.extractall(extracted_files)
+        except:
+            pass
 
 # %%
 ########################################################################################################################
