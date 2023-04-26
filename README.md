@@ -6,7 +6,7 @@ A Receita Federal do Brasil disponibiliza bases com os dados públicos do cadast
 
 De forma geral, nelas constam as mesmas informações que conseguimos ver no cartão do CNPJ, quando fazemos uma consulta individual, acrescidas de outros dados de Simples Nacional, sócios e etc. Análises muito ricas podem sair desses dados, desde econômicas, mercadológicas até investigações.
 
-# Baseado no belíssimo trabalho do gênio [Aphonso Henrique](https://github.com/aphonsoar), este repositório adiciona algumas melhorias como 
+# Baseado no belíssimo trabalho do gênio [Aphonso Henrique](https://github.com/aphonsoar), este repositório adiciona algumas melhorias ao [original](https://github.com/aphonsoar/Receita_Federal_do_Brasil_-_Dados_Publicos_CNPJ) como 
 - Quebra de todos os arquivos muito grandes - não só os arquivos do **SIMPLES** - em partes menores durante a leitura evitando as quebras de processamento por falta de  memória durante a operação
 - Adicionada uma pasta "SAVED_FILES" para armazenar dinamicamente os arquivos já importados para o BD
 - Descompactar novamente os arquivos se tornou opcional
@@ -65,9 +65,6 @@ pip install -r requirements.txt
 
 
 - Pelo volume de dados, as tabelas  `empresa`, `estabelecimento`, `socios` e `simples` possuem índices para a coluna `cnpj_basico`, que é a principal chave de ligação entre elas.
-
-### Modelo de Entidade Relacionamento:
-![alt text](https://github.com/aphonsoar/Receita_Federal_do_Brasil_-_Dados_Publicos_CNPJ/blob/master/Dados_RFB_ERD.png)
 
 ### Créditos especiais para:
 https://github.com/aphonsoar/Receita_Federal_do_Brasil_-_Dados_Publicos_CNPJ
