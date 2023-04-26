@@ -287,7 +287,7 @@ for e in range(0, len(arquivos_empresa)):
     extracted_file_path = os.path.join(extracted_files, arquivos_empresa[e])
     saved_file_path = os.path.join(saved_files, arquivos_empresa[e])
 
-    file_lenght = sum(1 for line in open(extracted_file_path, "r"))
+    file_lenght = sum(1 for line in open(extracted_file_path, "r", encoding="latin-1"))
     print(
         "Linhas no arquivo de Empresas "
         + arquivos_empresa[e]
@@ -398,7 +398,7 @@ for e in range(0, len(arquivos_estabelecimento)):
     extracted_file_path = os.path.join(extracted_files, arquivos_estabelecimento[e])
     saved_file_path = os.path.join(saved_files, arquivos_estabelecimento[e])
 
-    file_lenght = sum(1 for line in open(extracted_file_path, "r"))
+    file_lenght = sum(1 for line in open(extracted_file_path, "r", encoding="latin-1"))
     print(
         "Linhas no arquivo de Estabelececimentos "
         + arquivos_estabelecimento[e]
@@ -527,7 +527,7 @@ for e in range(0, len(arquivos_socios)):
     extracted_file_path = os.path.join(extracted_files, arquivos_socios[e])
     saved_file_path = os.path.join(saved_files, arquivos_socios[e])
 
-    file_lenght = sum(1 for line in open(extracted_file_path, "r"))
+    file_lenght = sum(1 for line in open(extracted_file_path, "r", encoding="latin-1"))
     print(
         "Linhas no arquivo de Sócios "
         + arquivos_socios[e]
@@ -631,7 +631,7 @@ for e in range(0, len(arquivos_simples)):
     extracted_file_path = os.path.join(extracted_files, arquivos_simples[e])
     saved_file_path = os.path.join(saved_files, arquivos_simples[e])
 
-    file_lenght = sum(1 for line in open(extracted_file_path, "r"))
+    file_lenght = sum(1 for line in open(extracted_file_path, "r", encoding="latin-1"))
     print(
         "Linhas no arquivo do Simples " + arquivos_simples[e] + ": " + str(file_lenght)
     )
