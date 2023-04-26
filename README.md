@@ -11,7 +11,12 @@ De forma geral, nelas constam as mesmas informações que conseguimos ver no car
 - Adicionada uma pasta "SAVED_FILES" para armazenar dinamicamente os arquivos já importados para o BD
 - Descompactar novamente os arquivos se tornou opcional
 
-Nesse repositório consta um processo de ETL para **i)** baixar os arquivos; **ii)** descompactar; **iii)** ler e tratar, **iv)** inserir num banco de dados relacional MariaDB e **iv)** Guardar o arquivo tratado em uma pasta.
+Nesse repositório consta um processo de ETL para 
+**i)** baixar os arquivos; 
+**ii)** descompactar; 
+**iii)** ler e tratar, 
+**iv)** inserir num banco de dados relacional MariaDB e 
+**v)** Guardar o arquivo tratado em uma pasta.
 
 ---------------------
 
