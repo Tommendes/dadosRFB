@@ -1,4 +1,4 @@
-# Dados Públicos CNPJ e MariaDb
+# Dados Públicos CNPJ (MariaDb)
 - Fonte oficial da Receita Federal do Brasil, [aqui](https://dados.gov.br/dados/conjuntos-dados/cadastro-nacional-da-pessoa-jurdica---cnpj).
 - Layout dos arquivos, [aqui](https://www.gov.br/receitafederal/dados/cnpj-metadados.pdf).
 
