@@ -348,14 +348,15 @@ for e in range(0, len(arquivos_empresa)):
         to_sql(empresa, name="empresa", con=engine, if_exists="append", index=False)
         print("\nArquivo "+ arquivos_empresa[e]+ " inserido com sucesso no banco de dados! - Parte "+ str(i + 1))
 
+    # Move o arquivo par a pasta SAVED_FILES
+    os.rename(extracted_file_path, saved_file_path)
+    print("\nArquivo "+ arquivos_empresa[e]+ " movido para pasta "+ saved_files+ "!")
+
 try:
     del empresa
 except:
     pass
 print("\nArquivos de empresa finalizados!")
-# Move o arquivo par a pasta SAVED_FILES
-os.rename(extracted_file_path, saved_file_path)
-print("\nArquivo "+ arquivos_empresa[e]+ " movido para pasta "+ saved_files+ "!")
 empresa_insert_end = time.time()
 empresa_Tempo_insert = round((empresa_insert_end - empresa_insert_start))
 print(
@@ -474,15 +475,16 @@ for e in range(0, len(arquivos_estabelecimento)):
             index=False,
         )
         print("\nArquivo "+ arquivos_estabelecimento[e]+ " inserido com sucesso no banco de dados! - Parte "+ str(i + 1))
+    
+    # Move o arquivo par a pasta SAVED_FILES
+    os.rename(extracted_file_path, saved_file_path)
+    print("\nArquivo "+ arquivos_estabelecimento[e]+ " movido para pasta "+ saved_files+ "!")
 
 try:
     del estabelecimento
 except:
     pass
 print("\nArquivos de estabelecimento finalizados!")
-# Move o arquivo par a pasta SAVED_FILES
-os.rename(extracted_file_path, saved_file_path)
-print("\nArquivo "+ arquivos_estabelecimento[e]+ " movido para pasta "+ saved_files+ "!")
 estabelecimento_insert_end = time.time()
 estabelecimento_Tempo_insert = round(
     (estabelecimento_insert_end - estabelecimento_insert_start)
@@ -585,14 +587,15 @@ for e in range(0, len(arquivos_socios)):
             + str(i + 1)
         )
 
+    # Move o arquivo par a pasta SAVED_FILES
+    os.rename(extracted_file_path, saved_file_path)
+    print("\nArquivo " + arquivos_socios[e] + " movido para pasta " + saved_files + "!")
+
 try:
     del socios
 except:
     pass
 print("\nArquivos de socios finalizados!")
-# Move o arquivo par a pasta SAVED_FILES
-os.rename(extracted_file_path, saved_file_path)
-print("\nArquivo " + arquivos_socios[e] + " movido para pasta " + saved_files + "!")
 socios_insert_end = time.time()
 socios_Tempo_insert = round((socios_insert_end - socios_insert_start))
 print(
@@ -681,15 +684,16 @@ for e in range(0, len(arquivos_simples)):
             del simples
         except:
             pass
+        
+    # Move o arquivo par a pasta SAVED_FILES
+    os.rename(extracted_file_path, saved_file_path)
+    print("\nArquivo " + arquivos_simples[e] + " movido para pasta " + saved_files + "!")
 
 try:
     del simples
 except:
     pass
 print("\nArquivos do simples finalizados!")
-# Move o arquivo par a pasta SAVED_FILES
-os.rename(extracted_file_path, saved_file_path)
-print("\nArquivo " + arquivos_simples[e] + " movido para pasta " + saved_files + "!")
 simples_insert_end = time.time()
 simples_Tempo_insert = round((simples_insert_end - simples_insert_start))
 print(
@@ -742,6 +746,8 @@ for e in range(0, len(arquivos_cnae)):
     # cnae
     to_sql(cnae, name="cnae", con=engine, if_exists="append", index=False)
     print("\nArquivo " + arquivos_cnae[e] + " inserido com sucesso no banco de dados!")
+
+    # Move o arquivo par a pasta SAVED_FILES
     os.rename(extracted_file_path, saved_file_path)
     print("\nArquivo " + arquivos_cnae[e] + " movido para pasta " + saved_files + "!")
 
@@ -799,6 +805,8 @@ for e in range(0, len(arquivos_moti)):
     # moti
     to_sql(moti, name="moti", con=engine, if_exists="append", index=False)
     print("\nArquivo " + arquivos_moti[e] + " inserido com sucesso no banco de dados!")
+    
+    # Move o arquivo par a pasta SAVED_FILES
     os.rename(extracted_file_path, saved_file_path)
     print("\nArquivo " + arquivos_moti[e] + " movido para pasta " + saved_files + "!")
 
@@ -859,6 +867,8 @@ for e in range(0, len(arquivos_munic)):
     # munic
     to_sql(munic, name="munic", con=engine, if_exists="append", index=False)
     print("\nArquivo " + arquivos_munic[e] + " inserido com sucesso no banco de dados!")
+    
+    # Move o arquivo par a pasta SAVED_FILES
     os.rename(extracted_file_path, saved_file_path)
     print("\nArquivo " + arquivos_munic[e] + " movido para pasta " + saved_files + "!")
 
@@ -919,6 +929,8 @@ for e in range(0, len(arquivos_natju)):
     # natju
     to_sql(natju, name="natju", con=engine, if_exists="append", index=False)
     print("\nArquivo " + arquivos_natju[e] + " inserido com sucesso no banco de dados!")
+    
+    # Move o arquivo par a pasta SAVED_FILES
     os.rename(extracted_file_path, saved_file_path)
     print("\nArquivo " + arquivos_natju[e] + " movido para pasta " + saved_files + "!")
 
@@ -979,6 +991,8 @@ for e in range(0, len(arquivos_pais)):
     # pais
     to_sql(pais, name="pais", con=engine, if_exists="append", index=False)
     print("\nArquivo " + arquivos_pais[e] + " inserido com sucesso no banco de dados!")
+    
+    # Move o arquivo par a pasta SAVED_FILES
     os.rename(extracted_file_path, saved_file_path)
     print("\nArquivo " + arquivos_pais[e] + " movido para pasta " + saved_files + "!")
 
@@ -1036,6 +1050,8 @@ for e in range(0, len(arquivos_quals)):
     # quals
     to_sql(quals, name="quals", con=engine, if_exists="append", index=False)
     print("\nArquivo " + arquivos_quals[e] + " inserido com sucesso no banco de dados!")
+    
+    # Move o arquivo par a pasta SAVED_FILES
     os.rename(extracted_file_path, saved_file_path)
     print("\nArquivo " + arquivos_quals[e] + " movido para pasta " + saved_files + "!")
 
