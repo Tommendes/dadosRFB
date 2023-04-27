@@ -230,8 +230,8 @@ for i in range(len(Items)):
 # %%
 # Conectar no banco de dados:
 # Dados da conexão com o BD
-host = ""
-database = ""
+host = "192.168.255.105"
+database = "vivazul_rfb"
 user = "root"
 passw = ""
 port = "3306"
@@ -732,7 +732,7 @@ for e in range(0, len(arquivos_cnae)):
         skiprows=0,
         header=None,
         dtype="object",
-        encoding="ANSI",
+        encoding="latin-1",
     )
 
     # Tratamento do arquivo antes de inserir na base:
@@ -791,7 +791,7 @@ for e in range(0, len(arquivos_moti)):
         skiprows=0,
         header=None,
         dtype="object",
-        encoding="ANSI",
+        encoding="latin-1",
     )
 
     # Tratamento do arquivo antes de inserir na base:
@@ -853,7 +853,7 @@ for e in range(0, len(arquivos_munic)):
         skiprows=0,
         header=None,
         dtype="object",
-        encoding="ANSI",
+        encoding="latin-1",
     )
 
     # Tratamento do arquivo antes de inserir na base:
@@ -915,7 +915,7 @@ for e in range(0, len(arquivos_natju)):
         skiprows=0,
         header=None,
         dtype="object",
-        encoding="ANSI",
+        encoding="latin-1",
     )
 
     # Tratamento do arquivo antes de inserir na base:
@@ -977,7 +977,7 @@ for e in range(0, len(arquivos_pais)):
         skiprows=0,
         header=None,
         dtype="object",
-        encoding="ANSI",
+        encoding="latin-1",
     )
 
     # Tratamento do arquivo antes de inserir na base:
@@ -1036,7 +1036,7 @@ for e in range(0, len(arquivos_quals)):
         skiprows=0,
         header=None,
         dtype="object",
-        encoding="ANSI",
+        encoding="latin-1",
     )
 
     # Tratamento do arquivo antes de inserir na base:
@@ -1085,11 +1085,11 @@ print(
 )
 
 # ###############################
-# Tamanho dos arquivos:
-# empresa = 45.811.638
-# estabelecimento = 48.421.619
-# socios = 20.426.417
-# simples = 27.893.923
+# Tamanho dos arquivos em 26/04/2023:
+# empresa = 51.314.404
+# estabelecimento = 55.780.915
+# socios = 22.000.000
+# simples = 34.995.097
 # ###############################
 
 # %%
@@ -1102,11 +1102,33 @@ print(
 #######################################
 """
 )
+print("\nEmpresa")
 cur.execute(
     """
 ALTER TABLE empresa ADD index empresa_cnpj (cnpj_basico);
+"""
+)
+conn.commit()
+
+print("\nEstabelecimento")
+cur.execute(
+    """
 ALTER TABLE estabelecimento ADD index estabelecimento_cnpj (cnpj_basico);
+"""
+)
+conn.commit()
+
+print("\nSócios")
+cur.execute(
+    """
 ALTER TABLE socios ADD index socios_cnpj (cnpj_basico);
+"""
+)
+conn.commit()
+
+print("\nSimples")
+cur.execute(
+    """
 ALTER TABLE simples ADD index simples_cnpj (cnpj_basico);
 """
 )
