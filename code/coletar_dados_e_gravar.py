@@ -230,8 +230,8 @@ for i in range(len(Items)):
 # %%
 # Conectar no banco de dados:
 # Dados da conexão com o BD
-host = "192.168.255.105"
-database = "vivazul_rfb"
+host = ""
+database = ""
 user = "root"
 passw = ""
 port = "3306"
