@@ -1,0 +1,29 @@
+---
+description: Respostas finais curtas — poucas sentenças, sem resumo extenso
+alwaysApply: true
+---
+
+# Respostas ao concluir tarefas
+
+Ao terminar uma execução, seja breve. Poucas sentenças bastam.
+
+## O que fazer
+
+- Informar o essencial: o que mudou e por quê (1–3 frases).
+- Mencionar bloqueios ou próximo passo só se for relevante.
+- Usar listas curtas apenas quando houver vários itens distintos.
+
+## O que evitar
+
+- Resumos longos repetindo cada arquivo ou passo da conversa.
+- Recapitular o plano inteiro ou o histórico do que já foi discutido.
+- Parágrafos de “contexto” que o usuário já conhece.
+- Sugestões genéricas de follow-up no final de toda resposta.
+
+## Exemplo
+
+```
+❌ Evitar: vários parágrafos listando cada arquivo, cada decisão de design e um checklist de validação manual.
+
+✅ Preferir: "Corrigi o parser do PDF e o mapeamento de campos. Rode o script de ingestão de novo para validar." ou "Correção aplicada."
+```
